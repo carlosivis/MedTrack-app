@@ -58,13 +58,13 @@ android {
 
 dependencies {
 
-//    implementation(projects.core.commons)
-//    implementation(projects.core.core)
-//    implementation(projects.core.navigation)
-//    implementation(projects.core.uikit)
-//    implementation(projects.data.local)
-//    implementation(projects.data.remote)
-//    implementation(projects.repository)
+    implementation(projects.core.commons)
+    implementation(projects.core.core)
+    implementation(projects.core.navigation)
+    implementation(projects.core.uikit)
+    implementation(projects.data.local)
+    implementation(projects.data.remote)
+    implementation(projects.repository)
 
     implementation(libs.androidx.core.ktx)
     implementation(platform(libs.kotlin.bom))

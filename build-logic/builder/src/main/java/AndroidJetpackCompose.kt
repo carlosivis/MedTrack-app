@@ -10,6 +10,7 @@ class AndroidJetpackCompose: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("kotlin-android")
+            pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
             val extension: CommonExtension<*, *, *, *> = try {
                 extensions.getByType<LibraryExtension>()

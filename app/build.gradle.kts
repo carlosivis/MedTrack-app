@@ -2,6 +2,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
     alias(libs.plugins.dev.carlosivis.android.compose)
 }
 true
@@ -70,7 +71,8 @@ dependencies {
     implementation(platform(libs.kotlin.bom))
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    //implementation(libs.koin.android)
+    implementation(libs.koin.android)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
+
 }

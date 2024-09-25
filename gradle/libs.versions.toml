@@ -1,12 +1,13 @@
 [versions]
+detektGradlePlugin = "1.22.0"
 kotlin = "2.0.0"
 kotlin-bom = "2.0.0"
 kotlinxCoroutines = "1.8.1"
-coreKtx = "1.10.1"
+coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
+lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.8.0"
 composeBom = "2024.04.01"
 appcompat = "1.6.1"
@@ -16,18 +17,20 @@ gson = "2.11.0"
 okhttp3 = "4.12.0"
 retrofit = "2.11.0"
 coil = "2.6.0"
-lifecycleViewmodelKtx = "2.8.4"
-androidxLifecycle = "2.5.1"
+lifecycleViewmodelKtx = "2.8.6"
+androidxLifecycle = "2.8.6"
 androidxRoom = "2.6.1"
-jetbrainsKotlinJvm = "1.9.0"
 accompanist = "0.28.0"
-jetbrainsKotlinJvmVersion = "1.9.0"
-orgJetbrainsKotlinJvm = "1.9.0"
+koin = "3.5.6"
+androidxNavigationKtx = "2.8.1"
+
+
 
 
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detektGradlePlugin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -62,7 +65,11 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidxRoom" }
 androidx-compose-material = { group = "androidx.compose.material", name = "material" }
 accompanist-placeholder = { group = "com.google.accompanist", name = "accompanist-placeholder-material", version.ref = "accompanist"}
-
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigationKtx" }
+androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "androidxNavigationKtx" }
 
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 
@@ -75,5 +82,4 @@ dev-carlosivis-android-library = { id = "dev.carlosivis.android.library", versio
 dev-carlosivis-android-feature = { id = "dev.carlosivis.android.feature", version = "1.0.0" }
 dev-carlosivis-android-compose = { id = "dev.carlosivis.android.compose", version = "1.0.0" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.1" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "orgJetbrainsKotlinJvm" }
 

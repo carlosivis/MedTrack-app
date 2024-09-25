@@ -19,7 +19,7 @@ internal fun Project.configureFeatureDependencies(
             implementation(project(":core:core"))
             implementation(project(":core:uikit"))
 
-            //implementation(libs.getLibrary("koin-androidx-compose"))
+            implementation(libs.getLibrary("koin-androidx-compose"))
 
             testImplementation(libs.getLibrary("junit"))
             testImplementation(libs.getLibrary("mockk"))

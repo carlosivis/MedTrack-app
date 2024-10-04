@@ -9,6 +9,7 @@ dependencies {
     implementation(projects.core.commons)
     implementation(projects.repository)
     implementation(projects.models)
+    implementation(libs.koin.core)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.gson)
     implementation(libs.androidx.room.runtime)

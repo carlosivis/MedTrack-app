@@ -1,4 +1,4 @@
-package dev.carlosivis.data.local.entity
+package dev.carlosivis.medtrack.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,3 +15,4 @@ data class MedicationEntity(
 ){
 
 }
+

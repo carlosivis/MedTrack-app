@@ -1,8 +1,8 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.dev.carlosivis.kotlin.domain)
+    id("dev.carlosivis.android.library")
 }
-true
+
+android.namespace = "dev.carlosivis.medtrack.models"
 
 dependencies {
     implementation(projects.domain.medicine)

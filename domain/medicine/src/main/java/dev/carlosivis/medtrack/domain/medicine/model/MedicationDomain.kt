@@ -4,7 +4,7 @@ data class MedicationDomain(
     val id: Int,
     val name: String,
     val dosage: String,
-    val frequency: String,
+    val frequency: Int,
     val startTime: Long,
     val duration: Int,
     val isActive: Boolean

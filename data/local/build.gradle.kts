@@ -6,7 +6,9 @@ plugins {
 android.namespace = "dev.carlosivis.medtrack.data.local"
 
 dependencies {
-    implementation(project(":core:commons"))
+    implementation(projects.core.commons)
+    implementation(projects.repository)
+    implementation(projects.models)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.gson)
     implementation(libs.androidx.room.runtime)

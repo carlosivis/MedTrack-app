@@ -5,7 +5,8 @@ plugins {
 
 dependencies {
     implementation(projects.core.commons)
+    implementation(projects.models)
     api(projects.domain.medicine)
-    //implementation(libs.koin.core)
+    implementation(libs.koin.core)
     implementation(libs.kotlinx.coroutines.core)
 }

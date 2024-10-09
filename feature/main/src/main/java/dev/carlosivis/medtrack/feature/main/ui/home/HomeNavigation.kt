@@ -4,5 +4,4 @@ interface HomeNavigation {
     fun navigateToMedication()
     fun navigateToPrescription()
     fun navigateToReminder()
-
 }

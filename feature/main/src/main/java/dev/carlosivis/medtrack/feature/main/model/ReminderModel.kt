@@ -7,7 +7,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class ReminderModel(
     val id: Int,
-    val medicationId: Int,
+    val name: String,
+    val medicationId: List<Int>,
     val reminderType: String, // "medication" or "prescription"
     val reminderTime: Long
 ) : Parcelable

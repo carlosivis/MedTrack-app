@@ -6,6 +6,7 @@ import dev.carlosivis.medtrack.domain.medicine.model.ReminderDomain
 
 fun ReminderDomain.toEntity() = ReminderEntity(
     id = id,
+    name = name,
     medicationId = medicationId,
     reminderTime = reminderTime,
     reminderType = reminderType,
@@ -13,6 +14,7 @@ fun ReminderDomain.toEntity() = ReminderEntity(
 
 fun ReminderEntity.toDomain() = ReminderDomain(
     id = id,
+    name = name,
     medicationId = medicationId,
     reminderTime = reminderTime,
     reminderType = reminderType,

@@ -15,4 +15,5 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.accompanist.placeholder)
+    implementation(libs.androidx.material3.android)
 }

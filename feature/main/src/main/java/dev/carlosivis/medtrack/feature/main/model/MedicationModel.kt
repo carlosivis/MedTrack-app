@@ -14,6 +14,15 @@ data class MedicationModel(
     val isActive: Boolean
 ) : Parcelable
 
+val EMPTY_MEDICATION_MODEL = MedicationModel(
+    id = 0,
+    name = "",
+    dosage = "",
+    frequency = 0,
+    startTime = 0,
+    duration = 0,
+    isActive = false
+)
 val mockMedicationModel = MedicationModel(
     id = 1,
     name = "Medication One",

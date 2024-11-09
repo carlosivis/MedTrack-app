@@ -19,3 +19,12 @@ val mockPrescriptionModel = PrescriptionModel(
     doctorName = "Dr. John Doe",
     doctorContact = "123-456-7890"
 )
+val mockPrescriptionModel2 = PrescriptionModel(
+    id = 2,
+    medicationId = listOf(1,2),
+    expiryDate = 1929622631,
+    doctorName = "Dr. John Doe",
+    doctorContact = "123-456-7890"
+)
+
+val listMockPrescription = listOf(mockPrescriptionModel, mockPrescriptionModel2)

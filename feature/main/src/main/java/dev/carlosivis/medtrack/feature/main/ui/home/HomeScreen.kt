@@ -42,12 +42,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.carlosivis.medtrack.core.uikit.theme.Colors
 import dev.carlosivis.medtrack.feature.main.getHoursUntilReminder
-import dev.carlosivis.medtrack.feature.main.getReminderTextColor
 import dev.carlosivis.medtrack.feature.main.model.MedicationModel
+import dev.carlosivis.medtrack.feature.main.model.PrescriptionModel
 import dev.carlosivis.medtrack.feature.main.model.ReminderModel
 import dev.carlosivis.medtrack.feature.main.model.listMockMedication
+import dev.carlosivis.medtrack.feature.main.model.listMockPrescription
 import dev.carlosivis.medtrack.feature.main.model.listMockReminder
-import dev.carlosivis.medtrack.presentation.main.R
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel){
@@ -74,14 +74,78 @@ private fun Content(
 
         CardReminders(state.reminderList)
         CardMedicines(state.medicationList)
-        CardPrescriptions()
-        //ExpandableFABMenu()
+        CardPrescriptions(state.prescriptionList)
+        ExpandableFABMenu()
     }
 }
 
 @Composable
-fun CardPrescriptions(){
+fun CardPrescriptions(prescriptions: List<PrescriptionModel>){
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(0.3f)
+            .shadow(elevation = 8.dp, shape = RoundedCornerShape(16.dp))
+            .background(shape = RoundedCornerShape(16.dp), color = Colors.SoftLavender)
+            .padding(16.dp),
+        contentAlignment = Alignment.TopStart
+    ) {
+        Column {
+            Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                Icon(
+                    painter = painterResource(id = dev.carlosivis.medtrack.core.uikit.R.drawable.baseline_task_24),
+                    contentDescription = "Prescriptions",
+                    tint = Color.Gray
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Prescriptions",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
 
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            if (prescriptions.isEmpty()) {
+                Text(
+                    text = "No prescriptions available",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+            } else {
+                prescriptions.forEach { prescription ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .padding(vertical = 4.dp)
+                            .fillMaxWidth()
+                    ) {
+                        val isExpired = prescription.expiryDate < System.currentTimeMillis()
+                        val statusColor = if (isExpired) Color.Red else Color.Green
+                        Box(
+                            modifier = Modifier
+                                .size(10.dp)
+                                .background(statusColor, shape = CircleShape)
+                        )
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        Column {
+                            Text(
+                                text = "Dr. ${prescription.doctorName} • Expires in ${prescription.expiryDate} days",
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Light,
+                                color = Color.Black
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -89,7 +153,7 @@ private fun CardReminders(reminders: List<ReminderModel>) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.4f)
+            .fillMaxHeight(0.5f)
             .shadow(elevation = 8.dp, shape = RoundedCornerShape(16.dp))
             .background(shape = RoundedCornerShape(16.dp), color = Colors.SoftLavender)
             .padding(16.dp),
@@ -160,7 +224,7 @@ private fun CardMedicines(medications: List<MedicationModel>) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.4f)
+            .fillMaxHeight(0.3f)
             .shadow(elevation = 8.dp, shape = RoundedCornerShape(16.dp))
             .background(shape = RoundedCornerShape(16.dp), color = Colors.SoftLavender)
             .padding(16.dp),
@@ -276,17 +340,20 @@ fun ExpandableFABMenu() {
 
 
 @Composable
-@Preview()
+@Preview
 fun CardsPreview() {
     Column {
         CardMedicines(listMockMedication)
         Spacer(Modifier.height(4.dp))
-        CardPrescriptions()
+        CardPrescriptions(listMockPrescription)
+        Spacer(Modifier.height(4.dp))
         CardReminders(listMockReminder)
+        Spacer(Modifier.height(4.dp))
     }
 }
 @Composable
-@Preview()
+@Preview
 fun ExpandableFABMenuPreview() {
+
     ExpandableFABMenu()
 }

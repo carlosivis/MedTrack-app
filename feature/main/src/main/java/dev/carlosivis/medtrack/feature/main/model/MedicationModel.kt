@@ -1,6 +1,7 @@
 package dev.carlosivis.medtrack.feature.main.model
 
 import android.os.Parcelable
+import dev.carlosivis.medtrack.domain.medicine.model.MedicationDomain
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -13,6 +14,15 @@ data class MedicationModel(
     val duration: Int,
     val isActive: Boolean
 ) : Parcelable
+
+fun MedicationModel.toDomain() = MedicationDomain(
+    id = id,
+    name = name,
+    dosage = dosage,
+    frequency = frequency,
+    startTime = startTime,
+    duration = duration,
+    isActive = isActive)
 
 val EMPTY_MEDICATION_MODEL = MedicationModel(
     id = 0,

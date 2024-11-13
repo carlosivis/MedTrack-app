@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import dev.carlosivis.medtrack.core.useCase
 import dev.carlosivis.medtrack.domain.medicine.usecase.SaveMedicationUseCase
 import dev.carlosivis.medtrack.feature.main.model.MedicationModel
+import dev.carlosivis.medtrack.feature.main.model.toDomain
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -37,6 +38,17 @@ class MedicationAddViewModel(
     }
 
     private fun saveMedication(medication: MedicationModel){
-        saveMedicationUseCase()
+        setLoading(true)
+        saveMedicationUseCase(
+            params = medication.toDomain(),
+            onSuccess  = {
+                setLoading(false)
+                navigation.popBackStack()
+            },
+            onFailure = {
+                setLoading(false)
+                _state.update { it.copy(error = it.error) }
+            }
+        )
     }
 }

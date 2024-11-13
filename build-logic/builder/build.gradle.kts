@@ -5,8 +5,8 @@ plugins {
 group = "dev.carlosivis.buildlogic.builder"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 dependencies{
     compileOnly("com.android.tools.build:gradle:8.0.1")

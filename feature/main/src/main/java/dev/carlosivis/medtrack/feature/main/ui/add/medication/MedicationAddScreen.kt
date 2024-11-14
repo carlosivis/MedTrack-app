@@ -48,7 +48,6 @@ private fun Content(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         LaunchedEffect(state.error){
             Toast.makeText(
